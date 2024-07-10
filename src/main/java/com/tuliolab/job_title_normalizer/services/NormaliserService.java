@@ -18,7 +18,7 @@ public class NormaliserService {
     }
 
     public String normalise(String jobTitle) {
-        log.info("Init method normalise with apache commons");
+        log.info("Init method normalise");
         //convert to lower case to ensure case-insensitive matching
         jobTitle = jobTitle.toLowerCase();
 
@@ -38,7 +38,7 @@ public class NormaliserService {
                 bestMatch = normalizedTitles.get(key);
             }
         }
-        log.info("End method normalise using apache commons");
+        log.info("End method normalise");
         return bestMatch != null ? bestMatch : jobTitle;
     }
 
