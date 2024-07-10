@@ -1,11 +1,12 @@
 package com.tuliolab.job_title_normalizer.services;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.HashMap;
 import java.util.Map;
-
+@Slf4j
 public class NormaliserService {
     private Map<String, String> normalizedTitles;
-
 
     //contructor  in charge to initializes the normalizedTitles map with predefined job titles
     public NormaliserService() {
@@ -17,7 +18,7 @@ public class NormaliserService {
     }
 
     public String normalise(String jobTitle) {
-
+        log.info("Init method normalise with apache commons");
         //convert to lower case to ensure case-insensitive matching
         jobTitle = jobTitle.toLowerCase();
 
@@ -37,7 +38,7 @@ public class NormaliserService {
                 bestMatch = normalizedTitles.get(key);
             }
         }
-
+        log.info("End method normalise using apache commons");
         return bestMatch != null ? bestMatch : jobTitle;
     }
 

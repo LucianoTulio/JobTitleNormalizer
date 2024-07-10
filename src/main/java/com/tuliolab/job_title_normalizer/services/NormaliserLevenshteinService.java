@@ -1,12 +1,11 @@
 package com.tuliolab.job_title_normalizer.services;
 
-//import the library to use similarity LevenshteinDistance
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.text.similarity.LevenshteinDistance;
-import org.slf4j.Logger;
 
 import java.util.HashMap;
 import java.util.Map;
+
 @Slf4j
 public class NormaliserLevenshteinService {
     private Map<String, String> normalizedTitles;
@@ -23,7 +22,7 @@ public class NormaliserLevenshteinService {
     }
 
     public String normalise(String jobTitle) {
-        log.info("Init method normalise");
+        log.info("Init method normalise with apache commons");
         //convert to lower case to ensure case-insensitive matching
         jobTitle = jobTitle.toLowerCase();
 
@@ -42,7 +41,7 @@ public class NormaliserLevenshteinService {
                 bestMatch = normalizedTitles.get(key);
             }
         }
-
+        log.info("End method normalise using apache commons");
         return bestMatch != null ? bestMatch : "Not Find";
     }
 }
